@@ -1,0 +1,18 @@
+.footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+mat-form-field {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+p {
+    font-family: Lato;
+}

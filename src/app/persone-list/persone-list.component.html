@@ -1,0 +1,70 @@
+<h2>Persone List</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Export</mat-label>
+    <mat-select>
+        <mat-option>
+            <button class="dropdown-item" (click)="exporter(1)">
+                <i class="fa fa-file-excel-o text-success" style="font-size: large"></i>
+         Excel
+    </button>
+        </mat-option>
+        <mat-option>
+            <button class="dropdown-item" (click)="exporter(2)">
+             <i class="fa fa-file-pdf-o text-danger" style="font-size: large" ></i> Pdf
+              </button>
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<div class="form-group">
+    <input type="text" class="form-control search-field" placeholder="Search Here" [(ngModel)]="searchText">
+</div>
+<div class="card card-body">
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Birthday</th>
+                <th scope="col"> City</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persone of persones | searchFilter: searchText   | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index">
+                <th scope="row">{{persone.id}}</th>
+                <td>{{persone.firstname}}</td>
+                <td>{{persone.lastname}}</td>
+                <td>{{persone.birthday}}</td>
+                <td>{{persone.city}}</td>
+                <td>
+
+                    <button mat-fab aria-label="Example icon button with a heart icon" (click)="updatePesone(persone.id)">
+                 <mat-icon>border_color</mat-icon>
+               </button>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deletePersone(persone.id)">
+                 <mat-icon>delete</mat-icon>
+                </button>
+
+                    <button mat-fab color="success" aria-label="Example icon button with a delete icon " (click)="PersonDetails(persone.id)">
+                 <mat-icon>dns</mat-icon>
+                </button>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+<div class="d-flex justify-content-center">
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>

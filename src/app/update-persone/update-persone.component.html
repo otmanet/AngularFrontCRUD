@@ -1,0 +1,23 @@
+<div class="col-md-8 offset-md-3">
+    <h3>Update Persone</h3>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" [(ngModel)]="persone.firstname" name="firstname">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" [(ngModel)]="persone.lastname" name="lastname">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Birthday</label>
+            <input type="text" class="form-control" id="birthday" [(ngModel)]="persone.birthday" name="birthday">
+        </div>
+        <div class="form-group">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" id="city" [(ngModel)]="persone.city" name="city">
+        </div>
+        <button class="btn btn-outline-success mt-1" type="submit">Update</button>
+    </form>
+</div>
